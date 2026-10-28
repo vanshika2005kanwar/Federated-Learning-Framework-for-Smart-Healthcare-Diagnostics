@@ -58,7 +58,8 @@ Most existing work treats hospital differences as abstract statistical (non-IID)
 *Exact numbers can vary slightly between runs and environments.*
 
 
-<img width="452" height="812" alt="Screenshot 2026-09-05 010654" src="https://github.com/user-attachments/assets/bab55b70-aa2e-45b1-8e5d-1d17e34e3ae1" />
+<img width="1113" height="604" alt="Screenshot 2026-10-28 145021" src="https://github.com/user-attachments/assets/4c8189fd-82b1-4818-adad-c5616952282d" />
+
 
 
 
