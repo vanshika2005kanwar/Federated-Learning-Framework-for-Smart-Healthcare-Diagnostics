@@ -1,6 +1,6 @@
 # Federated Learning Framework for Smart Healthcare Diagnostics
 
-A privacy-preserving, personalized Federated Learning (FL) framework that lets hospitals with different medical specialties collaboratively train a diagnostic model **without sharing raw patient data**.
+Topics:Federated-learning, healthcare-ai, differential-privacy, privacy-preserving-machine-learning, medical-diagnostics, pytorch, personalized-federated-learning**.
 
 > Semester Project | Apex Institute of Technology, Chandigarh University | 2026
 
