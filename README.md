@@ -57,13 +57,17 @@ Most existing work treats hospital differences as abstract statistical (non-IID)
 
 *Exact numbers can vary slightly between runs and environments.*
 
-![Results](docs/results_comparison.png)
+
+<img width="452" height="812" alt="Screenshot 2026-09-05 010654" src="https://github.com/user-attachments/assets/bab55b70-aa2e-45b1-8e5d-1d17e34e3ae1" />
+
+
 
 ---
 
 ## System Architecture
 
-![System Flowchart](docs/flowchart.png)
+<img width="1399" height="611" alt="Screenshot 2026-08-20 165436" src="https://github.com/user-attachments/assets/1357a65c-44e0-4e06-bfe8-665bb1e0ec67" />
+
 
 **Workflow:** Hospitals (local data) → Local training → Differential Privacy on updates → Central aggregator (FedAvg) → Global model → Sent back to hospitals → Local personalization → Evaluation
 
