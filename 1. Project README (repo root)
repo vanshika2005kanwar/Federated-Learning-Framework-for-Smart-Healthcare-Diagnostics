@@ -1,0 +1,153 @@
+# Federated Learning Framework for Smart Healthcare Diagnostics
+
+A privacy-preserving, personalized Federated Learning (FL) framework that lets hospitals with different medical specialties collaboratively train a diagnostic model **without ever sharing raw patient data**.
+
+> Semester project | Apex Institute of Technology | [Your University Name] | [Month, Year]
+
+---
+
+## Overview
+
+Hospitals hold valuable patient data, but privacy regulations prevent them from pooling it. Smaller or specialty-focused hospitals also rarely have enough diverse data to train accurate diagnostic models alone.
+
+This project shows how multiple hospitals can train a shared model while keeping all patient data local, and then personalize that model for their own patient population. Differential Privacy protects the model updates that are shared.
+
+### Key Idea
+1. Each hospital trains locally; raw data never leaves the hospital.
+2. Only model weights are sent to a central server, which combines them using **Federated Averaging (FedAvg)**.
+3. Each hospital **personalizes** the shared global model to its own specialty.
+4. **Differential Privacy** (gradient clipping + Gaussian noise) is applied to shared updates.
+
+### Novelty
+Most existing work treats hospital differences as abstract statistical (non-IID) splits. This project grounds heterogeneity in **real medical specialty differences** (Respiratory, Cardiology, Infectious Disease, General) and evaluates how a naive global model, personalization, and Differential Privacy behave under those conditions.
+
+---
+
+## Key Findings
+
+| Hospital | Global-only Accuracy | Personalized Accuracy |
+|---|---|---|
+| Respiratory | ~0% | ~100% |
+| Cardiology | ~0% | ~100% |
+| Infectious Disease | ~9% | ~90% |
+| General | ~97% | ~100% |
+
+- The shared global model is dominated by the hospital with the most data (General) and **fails almost completely** on smaller specialty hospitals.
+- A lightweight personalization step resolves this almost entirely.
+- Differential Privacy adds a measurable accuracy cost, most visible on the General hospital (about 74–79% with DP enabled).
+
+*Exact numbers may vary slightly between runs and environments.*
+
+---
+
+## Repository Structure
+
+```
+.
+├── README.md                     # Project overview (this file)
+├── code/
+│   ├── README.md                 # Code documentation
+│   └── FL_Healthcare_RealData.ipynb
+├── docs/
+│   ├── flowchart.png             # System flowchart
+│   └── results_comparison.png    # Output graph
+├── paper/                        # Research paper (optional)
+└── LICENSE
+```
+
+---
+
+## System Architecture
+
+*(Insert your flowchart here)*
+
+```
+![System Flowchart](docs/flowchart.png)
+```
+
+**Workflow:**
+Hospitals (local data) → Local training → Differential Privacy on updates → Central aggregator (FedAvg) → Global model → Back to hospitals → Local personalization → Evaluation
+
+---
+
+## Dataset
+
+**Disease Prediction Using Machine Learning** (public dataset)
+- ~4,960 patient records
+- 132 binary symptom features
+- 41 diseases
+
+Source: [Kaggle](https://www.kaggle.com/datasets/kaushil268/disease-prediction-using-machine-learning)
+
+Patients are partitioned into four simulated hospitals by specialty:
+
+| Hospital | Example Diseases |
+|---|---|
+| Respiratory | Bronchial Asthma, Tuberculosis, Common Cold, Pneumonia |
+| Cardiology | Hypertension, Heart Attack, Varicose Veins, Paralysis (brain hemorrhage) |
+| Infectious Disease | Malaria, Dengue, Typhoid, Hepatitis A–E, Chicken Pox, AIDS |
+| General | All remaining diseases |
+
+> The dataset contains no oncology/cancer cases, so Infectious Disease was used as the fourth specialty.
+
+---
+
+## Tech Stack
+
+- Python 3.x
+- PyTorch
+- Pandas, NumPy, Scikit-learn
+- Matplotlib
+- Google Colab
+
+---
+
+## Quick Start
+
+1. Open `code/FL_Healthcare_RealData.ipynb` in Google Colab.
+2. Run all cells (Runtime → Run all).
+3. The dataset downloads automatically; no login is needed.
+
+See [`code/README.md`](code/README.md) for details.
+
+---
+
+## Limitations
+
+- Differential Privacy uses a simplified DP-SGD style mechanism (gradient clipping + Gaussian noise). It does **not** provide a formally computed privacy budget (ε).
+- Hospitals are **simulated** from a single public dataset, not real multi-institution data.
+- Evaluation currently reports accuracy only.
+
+## Future Work
+
+- Formal privacy accounting using Opacus
+- Precision, recall, F1-score and ROC-AUC evaluation
+- Real clinical datasets (e.g., MIMIC-III/IV)
+- Explainable AI (XAI) for clinical interpretability
+- More hospital specialties, including oncology data
+
+---
+
+## Team
+
+| Name | Roll No. |
+|---|---|
+| [Name 1] | [Roll No.] |
+| [Name 2] | [Roll No.] |
+| [Name 3] | [Roll No.] |
+
+**Supervisor:** [Supervisor Name]
+
+---
+
+## Citation
+
+If you use this work, please cite:
+
+```
+[Authors]. "Federated Learning Framework for Smart Healthcare Diagnostics." [Year].
+```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
