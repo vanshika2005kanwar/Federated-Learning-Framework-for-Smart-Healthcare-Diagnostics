@@ -170,4 +170,4 @@ See [`code/README.md`](code/README.md) for details on the pipeline and configura
 
 ## License
 
-Released under the [MIT License](LICENSE).
+Released under the code/LICENSE
