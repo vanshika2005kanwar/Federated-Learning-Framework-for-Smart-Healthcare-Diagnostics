@@ -161,10 +161,10 @@ See [`code/README.md`](code/README.md) for details on the pipeline and configura
 
 | Name | Roll No. |
 |---|---|
-| Vanshika Kanwar | [Roll No.] |
-| [Teammate 2] | [Roll No.] |
-| [Teammate 3] | [Roll No.] |
-| [Teammate 4] | [Roll No.] |
+| Vanshika Kanwar | 23BAI70453 |
+| Gauravdeep Singh Bali  | 23BAI70547 |
+| Gursharan Singh | 23BAI70554 |
+| Akshay Thakur | 23BAI70488 |
 
 **Supervisor:** [Supervisor Name]
 
